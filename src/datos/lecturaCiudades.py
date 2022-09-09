@@ -1,11 +1,11 @@
-from ast import If
 import csv
 
 class LecturaCiudades:
 
-    def __init__(self, archivoCiudades):
-        self.archivoCiudades = archivoCiudades
+    def __init__(self):
+        self.archivoCiudades = 'dataset1.csv'
         self.ciudades = {}
+        self.lectura()
 
     def getCiudades(self):
         return self.ciudades
@@ -15,14 +15,15 @@ class LecturaCiudades:
         latitud = ''
         longitud = ''
         coordenadaLatLon = self.ciudades.get(claveCiudad)
+        latitudLongitud = list(coordenadaLatLon)
         i = 0
         while (i < len(coordenadaLatLon)):
-            if (coordenadaLatLon[i] == ','):
-                coordenadaLatLon[i] = ''                
-                longitud = coordenadaLatLon
+            if (latitudLongitud[i] == ','):
+                latitudLongitud[i] = ''                
+                longitud = "".join(latitudLongitud)
                 break
-            latitud += coordenadaLatLon[i]
-            coordenadaLatLon[i] = ''
+            latitud += latitudLongitud[i]
+            latitudLongitud[i] = ''
             i += 1
         coordenadas.append(latitud)            
         coordenadas.append(longitud)          
@@ -36,11 +37,3 @@ class LecturaCiudades:
 
     def imprime(self):
         print(self.ciudades)
-
-def main():
-    a = LecturaCiudades('dataset1.csv')
-    a.lectura()
-    a.imprime()
-
-main()   
-
