@@ -7,6 +7,9 @@ class Request:
         self.ciudades = LecturaCiudades()
         self.climaCiudad = {}
 
+    def getClimaCiudad(self): 
+        return self.climaCiudad
+
     def coonectarApi(self, claveCiudad):
         archivoKey = open('key.txt')
         apiKey = archivoKey.read()
@@ -28,9 +31,12 @@ class Request:
         print("La velocidad del viento es: " + str(self.climaCiudad["wind"]["speed"]) + " m/s")
         print("La nubosidad es del: " + str(self.climaCiudad["clouds"]["all"]) + "%")
 
-def main():
+""" def main():
     a = Request()
-    a.coonectarApi('MEX')
+    a.coonectarApi('GDL')
+    dic = a.getClimaCiudad()
+    print(dic['id'])
+    print(type(dic['id']))
     a.imprimeDatos()
-main()   
+main()    """
 
