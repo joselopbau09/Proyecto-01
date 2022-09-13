@@ -44,15 +44,5 @@ class Request:
         hora = time.time()
         datos.append(hora)
         return datos
-
-
-def main():
-    a = Request()
-    cache = {}
-    a.coonectarApi('GDL')
-    datos = a.generaDatos()
-    Cache.agregaDatos(cache, datos, 'GDL')
-    Cache.muestraDatos(cache, 'GDL')
-
-main()   
+  
 

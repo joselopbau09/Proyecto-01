@@ -1,4 +1,6 @@
-from test.datos.lecturaCiudades import LecturaCiudades
+from lecturaCiudades import LecturaCiudades
+from Cache import *
+from Request import *
 
 def getInt(mensaje, error,min, max):
     """Se encarga de interactuar con el usuario mediante terminal, dependiendo si el valor es aceptado imprime un error o el menú.
@@ -46,9 +48,18 @@ def getMenu(ciudades):
 
 def main():
 
-    lc = LecturaCiudades()
-    dicCiudades = lc.getCiudades()
-    menu = getMenu(list(dicCiudades.keys()))
-    opcion = getInt(menu, 'Ingrese una opción valida', 1, 45)
+    while(True):
+        lc = LecturaCiudades()
+        dicCiudades = lc.getCiudades()
+        menu = getMenu(list(dicCiudades.keys()))
+        opcion = getInt(menu, 'Ingrese una opción valida', 1, 45)
+        identificador = list(dicCiudades.keys())[opcion]
+        print("El clima en " + identificador + " es: \n")
+        a = Request()
+        cache = {}
+        a.coonectarApi(identificador)
+        datos = a.generaDatos()
+        Cache.agregaDatos(cache, datos, identificador)
+        Cache.muestraDatos(cache, identificador)
 
 main()
