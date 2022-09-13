@@ -1,5 +1,7 @@
 from lecturaCiudades import *
+from Cache import *
 import requests, json
+import time
 
 class Request:
     
@@ -17,20 +19,27 @@ class Request:
         respuesta = requests.get(urlCompleta)
         self.climaCiudad = json.loads(respuesta.text)
     
-    def imprimeDatos(self):
+    def generaDatos(self):
+        datos = []
         detallesClima = self.climaCiudad['weather']
-        print("El clima es el siguiente: \n ")
-        print("El estado del clima es: " + detallesClima[-1]["main"])
-        print("Descricpion del clima: " + detallesClima[-1]["description"])
-        print("La temperatura actual es: " + str(self.climaCiudad["main"]["temp"]) + " °K")
-        print("La temperatura mínima es: " + str(self.climaCiudad["main"]["temp_min"]) + " °K")
-        print("La temperatura máxima es: " + str(self.climaCiudad["main"]["temp_max"]) + " °K")
-        print("La velocidad del viento es: " + str(self.climaCiudad["wind"]["speed"]) + " m/s")
-        print("La nubosidad es del: " + str(self.climaCiudad["clouds"]["all"]) + "%")
+        datos.append(detallesClima[-1]["main"])
+        datos.append(detallesClima[-1]["description"])
+        datos.append(str(self.climaCiudad["main"]["temp"]) + " °K")
+        datos.append(str(self.climaCiudad["main"]["temp_min"]) + " °K")
+        datos.append(str(self.climaCiudad["main"]["temp_max"]) + " °K")
+        datos.append(str(self.climaCiudad["wind"]["speed"]) + " m/s")
+        datos.append(str(self.climaCiudad["clouds"]["all"]) + "%")
+        hora = time.time()
+        datos.append(hora)
+        return datos
+
 
 def main():
     a = Request()
+    cache = {}
     a.coonectarApi('MEX')
-    a.imprimeDatos()
+    datos = a.generaDatos()
+    Cache.agregaDatos(cache, datos, 'MEX')
+    Cache.muestraDatos(cache, 'MEX')
 main()   
 
