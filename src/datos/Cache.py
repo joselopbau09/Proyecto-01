@@ -4,9 +4,9 @@ class Cache:
     
     def agregaDatos(cache, listaDeDatos, identificador):
         actual = time.time()
-        if(cache == {}):
+        if(cache.get(identificador) == None):
             cache[identificador] = listaDeDatos
-        elif(actual- listaDeDatos[7] > 600):
+        elif(actual - listaDeDatos[7] > 6000000):
             cache[identificador] = listaDeDatos
         elif():
             pass
@@ -17,7 +17,7 @@ class Cache:
         print("Descripción: " + cache[identificador][1])
         print("La temperatura actual es: " + cache[identificador][2])
         print("La temperatura mínima es: " + cache[identificador][3])
-        print("La ttemperatura máxima es: " +  cache[identificador][4])
+        print("La temperatura máxima es: " +  cache[identificador][4])
         print("La velocidad del viento es: " + cache[identificador][5])
         print("La nubosidad es del: " + cache[identificador][6])
 
