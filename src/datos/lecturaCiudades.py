@@ -1,13 +1,26 @@
 import csv
+""" Módulo LecturaCiudades """
 
 class LecturaCiudades:
+    """ Se encarga de hacer la lectura del archivo de los  datos de las ciudades, archivo de tipo ".csv".
+
+    Attributes:
+        archivoCiudades (str): Localización del archivo a leer.
+        ciudades (dic[]): Almacena como llave la clave única de la ciudad junto con su latitud y longitud.
+
+    """
 
     def __init__(self):
+        """ Constructor que inicializa  los atributos de la clase.
+
+        """
         self.archivoCiudades = 'dataset1.csv'
         self.ciudades = {}
         self.lectura()
 
     def getCiudades(self):
+        """ 
+        """
         return self.ciudades
 
     def getCoordenadas(self, claveCiudad):

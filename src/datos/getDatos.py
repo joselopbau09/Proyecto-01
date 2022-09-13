@@ -30,7 +30,7 @@ class Request:
         print("La temperatura máxima es: " + str(self.climaCiudad["main"]["temp_max"]) + " °K")
         print("La velocidad del viento es: " + str(self.climaCiudad["wind"]["speed"]) + " m/s")
         print("La nubosidad es del: " + str(self.climaCiudad["clouds"]["all"]) + "%")
-
+ 
 """ def main():
     a = Request()
     a.coonectarApi('GDL')
@@ -38,5 +38,4 @@ class Request:
     print(dic['id'])
     print(type(dic['id']))
     a.imprimeDatos()
-main()    """
-
+main()     """
