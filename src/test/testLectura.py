@@ -1,5 +1,5 @@
 import unittest
-from lecturaCiudades import LecturaCiudades
+from datos.lecturaCiudades import LecturaCiudades
 """ import sys
 sys.path.append('./datos') 
 from datos.lecturaCiudades import LecturaCiudades

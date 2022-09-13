@@ -6,7 +6,7 @@ class LecturaCiudades:
 
     Attributes:
         archivoCiudades (str): Localización del archivo a leer.
-        ciudades (dic[]): Almacena como llave la clave única de la ciudad junto con su latitud y longitud.
+        ciudades (dic[str]): Almacena como llave la clave única de la ciudad junto con su latitud y longitud.
 
     """
 

@@ -10,7 +10,7 @@ def getInt(mensaje, error,min, max):
         max (int): Limite superior de los valores aceptados.
     
     Returns:
-        int: Regresa el la opción selecionada por el usiario.
+        int: Regresa el la opción selecionada por el usuario.
 
     """
 
@@ -38,7 +38,9 @@ def getMenu(ciudades):
     i = 1
     menu = ''
     while( i < len(ciudades) ):
-        menu += f'{i}: {ciudades[i]}\n'
+        menu += f'{i}: {ciudades[i]}\t\t\t\t\t'
+        if i%2 == 0:
+            menu += '\n'
         i += 1
     return menu     
 
