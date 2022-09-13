@@ -1,4 +1,4 @@
-from datos.lecturaCiudades import LecturaCiudades
+from test.datos.lecturaCiudades import LecturaCiudades
 
 def getInt(mensaje, error,min, max):
     """Se encarga de interactuar con el usuario mediante terminal, dependiendo si el valor es aceptado imprime un error o el menú.
