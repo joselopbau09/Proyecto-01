@@ -30,11 +30,11 @@ def getInt(mensaje, error,min, max):
 def getMenu(ciudades):
     """ Crea un menú con las claves única de las ciudades.
 
-        Args:
-            ciudad (list[str]): Contiene las claves de las ciudades. 
+    Args:
+        ciudad (list[str]): Contiene las claves de las ciudades. 
 
-         Returns:
-            str: El menú formado con las claves.   
+    Returns:
+        str: El menú formado con las claves.   
 
     """
     i = 1

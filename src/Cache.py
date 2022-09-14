@@ -2,7 +2,7 @@ import time
 
 class Cache:
 
-    """Clase para definir el comportamiento del cache
+    """Clase para definir el comportamiento del cache.
 
     """
 
@@ -10,9 +10,9 @@ class Cache:
         """Método para agregar datos al cache, verifica si ya están y su antigüedad.
 
         Args:
-            cache (dict): diccionario que representa el cache
-            listaDeDatos (list): lista que contiene la información del clima 
-            identificador (str): key para el diccionario
+            cache (dict): diccionario que representa el cache.
+            listaDeDatos (list): lista que contiene la información del clima.
+            identificador (str): key para el diccionario.
         """
         horaActual = time.time()
         if(cache.get(identificador) == None):
@@ -23,11 +23,11 @@ class Cache:
             pass
 
     def muestraDatos(cache, identificador):
-        """Imprime los datos en la terminal
+        """Imprime los datos en la terminal.
         
         Args:
-            cache (dict): diccionario de donde se extraen los datos
-            identificador (str): key para obtener datos del diccionario
+            cache (dict): diccionario de donde se extraen los datos.
+            identificador (str): key para obtener datos del diccionario.
 
         """
         print("El clima es: " + cache[identificador][0])

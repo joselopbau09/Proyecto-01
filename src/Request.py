@@ -4,10 +4,17 @@ import requests, json
 import time
 
 class Request:
-    """Clase para realizar la llamada a la API
+    """Clase para realizar la llamada a la API.
+    
+    Attributes:
+        ciudades (obj): Inicializa el obejcto que maneja la \"Base de datos\".
+        climaCiudad (dic): Almacena los datos que se consultan de la API.
     """
     
     def __init__(self):
+        """ Constructor que inicializa los parametros.
+                
+        """
         self.ciudades = LecturaCiudades()
         self.climaCiudad = {}
 
@@ -15,7 +22,8 @@ class Request:
         """Realiza la llamada a la API y genera el json. Lee un archivo txt con la llave.
 
         Args:
-            claveCiudad (str): identificador único para obtener las coordenadas de la ciudad
+            claveCiudad (str): identificador único para obtener las coordenadas de la ciudad.
+
         """
         archivoKey = open('key.txt')
         apiKey = archivoKey.read()
@@ -44,16 +52,4 @@ class Request:
         hora = time.time()
         datos.append(hora)
         return datos
-
-""""
-def main():
-    a = Request()
-    cache = {}
-    a.coonectarApi('MEX')
-    datos = a.generaDatos()
-    Cache.agregaDatos(cache, datos, 'MEX')
-    Cache.muestraDatos(cache, 'MEX')
-
-main()  
-""" 
 
