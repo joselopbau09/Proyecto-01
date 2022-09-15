@@ -1,9 +1,15 @@
 import unittest
-from datos.getDatos import Request
+from Request import Request
 
 class TestRequest(unittest.TestCase):
+    """ Clase que se encarga de realizar la pruebas unitarias de la clase Request.
+
+    """
     
     def test_getClimaCiudad(self):
+        """ Prueba si la conexión con el API y la obtención de los datos se realizo correctamente.
+        
+        """
         respuesta = Request()
         respuesta.coonectarApi('MEX')
         
