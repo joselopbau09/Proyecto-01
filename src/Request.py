@@ -11,7 +11,7 @@ class Request:
         self.ciudades = LecturaCiudades()
         self.climaCiudad = {}
 
-    def coonectarApi(self, claveCiudad):
+    def conectarApi(self, claveCiudad):
         """Realiza la llamada a la API y genera el json. Lee un archivo txt con la llave.
 
         Args:
@@ -45,15 +45,4 @@ class Request:
         datos.append(hora)
         return datos
 
-""""
-def main():
-    a = Request()
-    cache = {}
-    a.coonectarApi('MEX')
-    datos = a.generaDatos()
-    Cache.agregaDatos(cache, datos, 'MEX')
-    Cache.muestraDatos(cache, 'MEX')
-
-main()  
-""" 
 

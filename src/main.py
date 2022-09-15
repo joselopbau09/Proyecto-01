@@ -48,18 +48,31 @@ def getMenu(ciudades):
 
 def main():
 
+    lc = LecturaCiudades()
+    dicCiudades = lc.getCiudades()
+    menu = getMenu(list(dicCiudades.keys()))
+    
     while(True):
-        lc = LecturaCiudades()
-        dicCiudades = lc.getCiudades()
-        menu = getMenu(list(dicCiudades.keys()))
+        print("Elige  una ciudad ingresando su índice")
         opcion = getInt(menu, 'Ingrese una opción valida', 1, 45)
         identificador = list(dicCiudades.keys())[opcion]
         print("El clima en " + identificador + " es: \n")
         a = Request()
         cache = {}
-        a.coonectarApi(identificador)
-        datos = a.generaDatos()
-        Cache.agregaDatos(cache, datos, identificador)
-        Cache.muestraDatos(cache, identificador)
+
+        if(cache == {}):
+            a.conectarApi(identificador)
+            datos = a.generaDatos()
+            Cache.agregaDatos(cache,datos,identificador)
+            Cache.muestraDatos(cache, identificador)
+
+        elif(Cache.infoActualizada(cache, identificador) == True):
+            Cache.muestraDatos(cache, identificador)
+
+        elif():
+            a.conectarApi(identificador)
+            datos = a.generaDatos()
+            Cache.agregaDatos(cache,datos,identificador)
+            Cache.muestraDatos(cache, identificador)
 
 main()

@@ -25,12 +25,10 @@ class Cache:
             identificador (str): key del diccionario.
 
         Return:
-            True si la información está actualizada, False en otro caso.
+            boolean: True si la información está actualizada, False en otro caso.
         """
         horaActual = time.time()
-        if(cache.get(identificador == None)):
-            return False
-        elif(cache == {}):
+        if(cache.get(identificador) == None):
             return False
         elif(horaActual - cache[identificador][6] > 600000):
             return False
