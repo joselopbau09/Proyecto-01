@@ -1,7 +1,8 @@
-from lecturaCiudades import *
-from Cache import *
 import requests, json
 import time
+
+from classes.lecturaCiudades import LecturaCiudades
+from classes.Cache import *
 
 class Request:
     """Clase para realizar la llamada a la API.
@@ -18,6 +19,15 @@ class Request:
         self.ciudades = LecturaCiudades()
         self.climaCiudad = {}
 
+    def getClimaCiudad(self): 
+        """Se obtiene el diccionario con la información de la ciudad.
+        
+        Returns:
+            dict: Almacena la información consultada en el API.
+            
+        """
+        return self.climaCiudad    
+
     def conectarApi(self, claveCiudad):
         """Realiza la llamada a la API y genera el json. Lee un archivo txt con la llave.
 
@@ -27,6 +37,7 @@ class Request:
         """
         archivoKey = open('key.txt')
         apiKey = archivoKey.read()
+        archivoKey.close()
         url = "http://api.openweathermap.org/data/2.5/weather?"
         latitudLongitud = self.ciudades.getCoordenadas(claveCiudad)
         
@@ -52,5 +63,3 @@ class Request:
         hora = time.time()
         datos.append(hora)
         return datos
-
-

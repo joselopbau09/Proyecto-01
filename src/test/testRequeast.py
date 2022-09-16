@@ -1,5 +1,5 @@
 import unittest
-from Request import Request
+from classes.Request import Request
 
 class TestRequest(unittest.TestCase):
     """ Clase que se encarga de realizar la pruebas unitarias de la clase Request.
@@ -11,7 +11,7 @@ class TestRequest(unittest.TestCase):
         
         """
         respuesta = Request()
-        respuesta.coonectarApi('MEX')
+        respuesta.conectarApi('MEX')
         
         self.assertDictEqual(respuesta.getClimaCiudad()['coord'], {'lon': -99.0721, 'lat': 19.4363})
         self.assertEqual(respuesta.getClimaCiudad()['name'], 'Pantitlán')

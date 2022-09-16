@@ -1,4 +1,5 @@
 import csv
+
 """ Módulo LecturaCiudades """
 
 class LecturaCiudades:

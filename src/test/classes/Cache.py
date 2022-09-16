@@ -1,4 +1,5 @@
 import time
+
 class Cache:
 
     """Clase para definir el comportamiento del cache.

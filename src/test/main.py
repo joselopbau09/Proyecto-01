@@ -1,6 +1,6 @@
-from lecturaCiudades import LecturaCiudades
-from Cache import *
-from Request import *
+from classes.lecturaCiudades import LecturaCiudades
+from classes.Cache import *
+from classes.Request import *
 
 def getInt(mensaje, error,min, max):
     """Se encarga de interactuar con el usuario mediante terminal, dependiendo si el valor es aceptado imprime un error o el menú.
@@ -53,8 +53,8 @@ def main():
     menu = getMenu(list(dicCiudades.keys()))
     
     while(True):
-        print("Elige  una ciudad ingresando su índice")
-        opcion = getInt(menu, 'Ingrese una opción valida', 1, 45)
+        print("Elige  una ciudad ingresando su índice, si deseas terminar la ejcución ingresa 0: ")
+        opcion = getInt(menu, 'Ingrese una opción valida', 0, 45)
         identificador = list(dicCiudades.keys())[opcion]
         print("El clima en " + identificador + " es: \n")
         a = Request()
@@ -74,5 +74,6 @@ def main():
             datos = a.generaDatos()
             Cache.agregaDatos(cache,datos,identificador)
             Cache.muestraDatos(cache, identificador)
-
+        elif( opcion == 0):    
+            break
 main()
