@@ -3,6 +3,14 @@ from classes.Request import Request
 from classes.Cache import Cache
 
 def almacenaCache(indentificacion, cache):
+    """ Se encarga de hacer la llamada a la Api y de almacenar la infroemación en el cache.
+
+    Args:
+        indetificacion (str): Clave de la ciudad.
+        cache (dic): Donde se alamcena la información.
+    
+    """
+    
     respuesta = Request()
     respuesta.conectarApi(indentificacion)
     datos = respuesta.generaDatos()
@@ -14,7 +22,7 @@ class TestLectura(unittest.TestCase):
     """
 
     def test_infoActualizada(self):
-        """ Prueba si la lectura del archivo se realizo correctamente.
+        """ Prueba si la información que se almacena en el cache se hace de forma correcta.
         
         """
         
