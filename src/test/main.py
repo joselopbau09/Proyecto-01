@@ -53,7 +53,7 @@ def main():
     menu = getMenu(list(dicCiudades.keys()))
     
     while(True):
-        print("Elige  una ciudad ingresando su índice, si deseas terminar la ejcución ingresa 0: ")
+        print("Elige  una ciudad ingresando su índice, si deseas terminar la ejcución ingresa 0: \n")
         opcion = getInt(menu, 'Ingrese una opción valida', 0, 45)
         if( opcion == 0):    
             break
@@ -67,13 +67,16 @@ def main():
             datos = a.generaDatos()
             Cache.agregaDatos(cache,datos,identificador)
             Cache.muestraDatos(cache, identificador)
+            print()
 
         elif(Cache.infoActualizada(cache, identificador) == True):
             Cache.muestraDatos(cache, identificador)
+            print()
 
         elif():
             a.conectarApi(identificador)
             datos = a.generaDatos()
             Cache.agregaDatos(cache,datos,identificador)
             Cache.muestraDatos(cache, identificador)
+            print()
 main()
