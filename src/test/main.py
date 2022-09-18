@@ -55,6 +55,8 @@ def main():
     while(True):
         print("Elige  una ciudad ingresando su índice, si deseas terminar la ejcución ingresa 0: ")
         opcion = getInt(menu, 'Ingrese una opción valida', 0, 45)
+        if( opcion == 0):    
+            break
         identificador = list(dicCiudades.keys())[opcion]
         print("El clima en " + identificador + " es: \n")
         a = Request()
@@ -74,6 +76,4 @@ def main():
             datos = a.generaDatos()
             Cache.agregaDatos(cache,datos,identificador)
             Cache.muestraDatos(cache, identificador)
-        elif( opcion == 0):    
-            break
 main()

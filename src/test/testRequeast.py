@@ -2,7 +2,7 @@ import unittest
 from classes.Request import Request
 
 class TestRequest(unittest.TestCase):
-    """ Clase que se encarga de realizar la pruebas unitarias de la clase Request.
+    """ Clase que se encarga de realizar las pruebas unitarias de la clase Request.
 
     """
     
