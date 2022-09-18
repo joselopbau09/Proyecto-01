@@ -27,7 +27,7 @@ Proyecto-01/src/test$
 ```
 $ python3 main.py
 ```
--Para ejecutar las pruebas unitarias desde la misma posición en el directorio ejecutas el siguinete comando:
+-Para ejecutar las pruebas unitarias desde la misma posición en el directorio ejecutar el siguiente comando:
 
 ```
 python -m unittest discover
