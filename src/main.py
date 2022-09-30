@@ -1,4 +1,4 @@
-from classes.lecturaCiudades import LecturaCiudades
+from classes.LecturaCiudades import LecturaCiudades
 from classes.Cache import *
 from classes.Request import *
 

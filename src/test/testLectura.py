@@ -1,5 +1,5 @@
 import unittest
-from classes.lecturaCiudades import LecturaCiudades
+from classes.LecturaCiudades import LecturaCiudades
 
 class TestLectura(unittest.TestCase):
     """ Clase que se encarga de realizar las pruebas unitarias de la clase LecturaCiudades.

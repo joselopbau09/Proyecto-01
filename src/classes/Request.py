@@ -1,8 +1,7 @@
 import requests, json
 import time
 
-from classes.lecturaCiudades import LecturaCiudades
-from classes.Cache import *
+from classes.LecturaCiudades import LecturaCiudades
 
 class Request:
     """Clase para realizar la llamada a la API.
@@ -35,7 +34,7 @@ class Request:
             claveCiudad (str): identificador único para obtener las coordenadas de la ciudad.
 
         """
-        archivoKey = open('key.txt')
+        archivoKey = open('assets/key.txt')
         apiKey = archivoKey.read()
         archivoKey.close()
         url = "http://api.openweathermap.org/data/2.5/weather?"

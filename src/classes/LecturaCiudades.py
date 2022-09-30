@@ -15,7 +15,7 @@ class LecturaCiudades:
         """ Constructor que inicializa  los atributos de la clase.
 
         """
-        self.archivoCiudades = 'dataset1.csv'
+        self.archivoCiudades = 'assets/dataset1.csv'
         self.ciudades = {}
         self.lectura()
 
@@ -63,3 +63,6 @@ class LecturaCiudades:
         with open(self.archivoCiudades, mode = 'r') as file:
             reader = csv.reader(file)  
             self.ciudades = {rows[1]:f'{rows[4]},{rows[5]}' for rows in reader}
+def main():
+    x = LecturaCiudades()
+main()                
