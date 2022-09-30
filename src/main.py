@@ -1,4 +1,4 @@
-from classes.LecturaCiudades import LecturaCiudades
+from classes.LecturaCoordenadas import LecturaCoordenadas
 from classes.Cache import *
 from classes.Request import *
 
@@ -27,11 +27,11 @@ def getInt(mensaje, error,min, max):
         else:
             print(error)
 
-def getMenu(ciudades):
-    """ Crea un menú con las claves única de las ciudades.
+def getMenu(aeropuertos):
+    """ Crea un menú con las claves única de los aeropuertos.
 
     Args:
-        ciudad (list[str]): Contiene las claves de las ciudades. 
+        ciudad (list[str]): Contiene las claves de los aeropuertos. 
 
     Returns:
         str: El menú formado con las claves.   
@@ -39,8 +39,8 @@ def getMenu(ciudades):
     """
     i = 1
     menu = ''
-    while( i < len(ciudades) ):
-        menu += f'{i}: {ciudades[i]}\t\t\t\t\t'
+    while( i < len(aeropuertos) ):
+        menu += f'{i}: {aeropuertos[i]}\t\t\t\t\t'
         if i%2 == 0:
             menu += '\n'
         i += 1
@@ -48,23 +48,23 @@ def getMenu(ciudades):
 
 def main():
 
-    lc = LecturaCiudades()
-    dicCiudades = lc.getCiudades()
-    menu = getMenu(list(dicCiudades.keys()))
+    lectura = LecturaCoordenadas()
+    dicAeropuertos = lectura.getCiudades()
+    menu = getMenu(list(dicAeropuertos.keys()))
     
     while(True):
-        print("Elige  una ciudad ingresando su índice, si deseas terminar la ejcución ingresa 0: \n")
+        print("Elige una ciudad ingresando su índice, si deseas terminar la ejcución ingresa 0: \n")
         opcion = getInt(menu, 'Ingrese una opción valida', 0, 45)
         if( opcion == 0):    
             break
-        identificador = list(dicCiudades.keys())[opcion]
+        identificador = list(dicAeropuertos.keys())[opcion]
         print("El clima en " + identificador + " es: \n")
-        a = Request()
+        solicitud = Request()
         cache = {}
 
         if(cache == {}):
-            a.conectarApi(identificador)
-            datos = a.generaDatos()
+            solicitud.conectarApi(identificador)
+            datos = solicitud.generaDatos()
             Cache.agregaDatos(cache,datos,identificador)
             Cache.muestraDatos(cache, identificador)
             print()
@@ -74,8 +74,8 @@ def main():
             print()
 
         elif():
-            a.conectarApi(identificador)
-            datos = a.generaDatos()
+            solicitud.conectarApi(identificador)
+            datos = solicitud.generaDatos()
             Cache.agregaDatos(cache,datos,identificador)
             Cache.muestraDatos(cache, identificador)
             print()
