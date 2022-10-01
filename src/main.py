@@ -18,12 +18,12 @@ def getInt(mensaje, error,min, max):
 
     while (True):
         print(mensaje)
-        val = input()
-        if val.isnumeric():
-            if (int(val) < min or max < int(val)):
+        valorIngresado = input()
+        if valorIngresado.isnumeric():
+            if (int(valorIngresado) < min or max < int(valorIngresado)):
                 print(error)
             else:
-                return int(val)
+                return int(valorIngresado)
         else:
             print(error)
 
@@ -37,13 +37,13 @@ def getMenu(aeropuertos):
         str: El menú formado con las claves.   
 
     """
-    i = 1
+    indice = 1
     menu = ''
-    while( i < len(aeropuertos) ):
-        menu += f'{i}: {aeropuertos[i]}\t\t\t\t\t'
-        if i%2 == 0:
+    while( indice < len(aeropuertos) ):
+        menu += f'{indice}: {aeropuertos[indice]}\t\t\t\t\t'
+        if indice%2 == 0:
             menu += '\n'
-        i += 1
+        indice += 1
     return menu     
 
 def main():

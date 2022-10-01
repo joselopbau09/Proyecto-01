@@ -40,16 +40,15 @@ class LecturaCoordenadas:
         coordenadas = []
         latitud = ''
         longitud = ''
-        coordenadaLatLon = self.ciudades.get(claveCiudad)
-        latitudLongitud = list(coordenadaLatLon)
+        coordenadaLatitudLongitud = list(self.ciudades.get(claveCiudad))
         i = 0
-        while (i < len(coordenadaLatLon)):
-            if (latitudLongitud[i] == ','):
-                latitudLongitud[i] = ''                
-                longitud = "".join(latitudLongitud)
+        while (i < len(coordenadaLatitudLongitud)):
+            if (coordenadaLatitudLongitud[i] == ','):
+                coordenadaLatitudLongitud[i] = ''                
+                longitud = "".join(coordenadaLatitudLongitud)
                 break
-            latitud += latitudLongitud[i]
-            latitudLongitud[i] = ''
+            latitud += coordenadaLatitudLongitud[i]
+            coordenadaLatitudLongitud[i] = ''
             i += 1
         coordenadas.append(latitud)            
         coordenadas.append(longitud)          
@@ -63,6 +62,4 @@ class LecturaCoordenadas:
         with open(self.archivoCoordenadas, mode = 'r') as file:
             reader = csv.reader(file)  
             self.ciudades = {rows[1]:f'{rows[4]},{rows[5]}' for rows in reader}
-def main():
-    lectura = LecturaCoordenadas()
-main()                
+           
