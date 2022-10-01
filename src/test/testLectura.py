@@ -1,5 +1,6 @@
+
 import unittest
-from classes.lecturaCiudades import LecturaCiudades
+from classes.LecturaCoordenadas import LecturaCoordenadas
 
 class TestLectura(unittest.TestCase):
     """ Clase que se encarga de realizar las pruebas unitarias de la clase LecturaCiudades.
@@ -12,12 +13,12 @@ class TestLectura(unittest.TestCase):
         """ Prueba si la lectura del archivo se realizo correctamente.
         
         """
-        lc = LecturaCiudades()
-        self.assertListEqual(lc.getCoordenadas('MEX'), ['19.4363','-99.0721'])
-        self.assertListEqual(lc.getCoordenadas('TAM'), ['22.2964','-97.8659'])
-        self.assertListEqual(lc.getCoordenadas('SCL'), ['-33.393','-70.7858'])
-        self.assertListEqual(lc.getCoordenadas('GDL'), ['20.5218','-103.311'])
+        lecturaCsv = LecturaCoordenadas()
+        self.assertListEqual(lecturaCsv.getCoordenadas('MEX'), ['19.4363','-99.0721'])
+        self.assertListEqual(lecturaCsv.getCoordenadas('TAM'), ['22.2964','-97.8659'])
+        self.assertListEqual(lecturaCsv.getCoordenadas('SCL'), ['-33.393','-70.7858'])
+        self.assertListEqual(lecturaCsv.getCoordenadas('GDL'), ['20.5218','-103.311'])
 
-        self.assertDictEqual(lc.getCiudades(), self.resultadoDic)
+        self.assertDictEqual(lecturaCsv.getCiudades(), self.resultadoDic)
 if __name__ == '__main__':
     unittest.main()

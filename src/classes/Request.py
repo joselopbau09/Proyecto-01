@@ -1,14 +1,13 @@
 import requests, json
 import time
 
-from classes.lecturaCiudades import LecturaCiudades
-from classes.Cache import *
+from classes.LecturaCoordenadas import LecturaCoordenadas
 
 class Request:
     """Clase para realizar la llamada a la API.
     
     Attributes:
-        ciudades (obj): Inicializa el obejcto que maneja la \"Base de datos\".
+        coordenadas (obj): Inicializa el objeto que maneja la \"Base de datos\".
         climaCiudad (dic): Almacena los datos que se consultan de la API.
     """
     
@@ -16,7 +15,7 @@ class Request:
         """ Constructor que inicializa los parametros.
                 
         """
-        self.ciudades = LecturaCiudades()
+        self.coordenadas = LecturaCoordenadas()
         self.climaCiudad = {}
 
     def getClimaCiudad(self): 
@@ -32,14 +31,14 @@ class Request:
         """Realiza la llamada a la API y genera el json. Lee un archivo txt con la llave.
 
         Args:
-            claveCiudad (str): identificador único para obtener las coordenadas de la ciudad.
+            claveCiudad (str): identificador único para obtener las coordenadas del aeropuerto.
 
         """
-        archivoKey = open('key.txt')
+        archivoKey = open('assets/key.txt')
         apiKey = archivoKey.read()
         archivoKey.close()
         url = "http://api.openweathermap.org/data/2.5/weather?"
-        latitudLongitud = self.ciudades.getCoordenadas(claveCiudad)
+        latitudLongitud = self.coordenadas.getCoordenadas(claveCiudad)
         
         urlCompleta = f'{url}lat={latitudLongitud[0]}&lon={latitudLongitud[1]}&units=metric&lang=sp&appid={apiKey}'
         respuesta = requests.get(urlCompleta)
