@@ -34,22 +34,25 @@ class Interfaz(ttk.Frame):
     
     def muestraOpcion(self):
         opcionElegida = self.combo.get()
-        solicitud = Request()
-        cache = {}
-        mensaje  = ''
-        if(cache == {}):
-            solicitud.conectarApi(opcionElegida)
-            datos = solicitud.generaDatos()
-            Cache.agregaDatos(cache,datos,opcionElegida)
-            mensaje = Cache.muestraDatos(cache, opcionElegida)
-        elif(Cache.infoActualizada(cache, opcionElegida) == True):
-            mensaje = Cache.muestraDatos(cache, opcionElegida)
-        elif():
-            solicitud.conectarApi(opcionElegida)
-            datos = solicitud.generaDatos()
-            Cache.agregaDatos(cache,datos,opcionElegida)
-            mensaje = Cache.muestraDatos(cache, opcionElegida)
-        messagebox.showinfo(message= mensaje,title="Información del clima")
+        if opcionElegida == '':
+            messagebox.showerror(message= "Selcciona una opción!",title="Error")
+        else:
+            solicitud = Request()
+            cache = {}
+            mensaje  = ''
+            if(cache == {}):
+                solicitud.conectarApi(opcionElegida)
+                datos = solicitud.generaDatos()
+                Cache.agregaDatos(cache,datos,opcionElegida)
+                mensaje = Cache.muestraDatos(cache, opcionElegida)
+            elif(Cache.infoActualizada(cache, opcionElegida) == True):
+                mensaje = Cache.muestraDatos(cache, opcionElegida)
+            elif():
+                solicitud.conectarApi(opcionElegida)
+                datos = solicitud.generaDatos()
+                Cache.agregaDatos(cache,datos,opcionElegida)
+                mensaje = Cache.muestraDatos(cache, opcionElegida)
+            messagebox.showinfo(message= mensaje,title="Información del clima")
 
 ventana = tk.Tk()
 lectura = LecturaCoordenadas()
