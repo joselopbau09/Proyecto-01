@@ -37,6 +37,7 @@ class Cache:
             return True
 
     def muestraDatos(cache, identificador):
+        #Cambiar la documentación 
         """Imprime los datos en la terminal.
         
         Args:
@@ -44,14 +45,12 @@ class Cache:
             identificador (str): key para obtener datos del diccionario.
 
         """
-        print("El clima es: " + cache[identificador][0])
-        print("La temperatura actual es: " + cache[identificador][1])
-        print("La temperatura mínima es: " + cache[identificador][2])
-        print("La temperatura máxima es: " +  cache[identificador][3])
-        print("La velocidad del viento es: " + cache[identificador][4])
-        print("La nubosidad es del: " + cache[identificador][5])
-
-    
-
-
- 
+        informacionClima = f'\
+        El clima en {identificador} es: {cache[identificador][0]}\n\
+            La temperatura actual es: {cache[identificador][1]}\n\
+            La temperatura mínima es: {cache[identificador][2]}\n\
+            La temperatura máxima es: {cache[identificador][3]}\n\
+            La velocidad del viento es: {cache[identificador][4]}\n\
+            La nubosidad es del: {cache[identificador][5]}\n\
+            ' 
+        return informacionClima    
