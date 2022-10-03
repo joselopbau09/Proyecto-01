@@ -21,7 +21,12 @@ class Interfaz(ttk.Frame):
         self.button = ttk.Button(text="Mostrar clima",command=self.muestraOpcion)
         self.button.place(x=130, y=140)
     
-    def estiloVentana(self,ventana):    
+    def estiloVentana(self,ventana):
+        """ Define el título, icono, tamaño y posición de la ventana.
+            
+            Args:
+                ventana (Tk): ventana a la que se le aplican las características.
+        """
         ventana.title("Consultor del clima")
         ventana.iconbitmap('assets/icono.ico')
         ventana.eval('tk::PlaceWindow . center')
@@ -32,8 +37,12 @@ class Interfaz(ttk.Frame):
         self.etiquetaInformacion.place(x=30, y=30) 
         self.etiquetaInformacion.configure(font=('Arial', 12))
         self.etiquetaInformacion.configure(anchor="center")
-    
+
+        
     def muestraOpcion(self):
+        """ Realiza la llamada a la Api y muestra los datos del clima en una nueva ventana, revisando antes el cache.
+
+        """
         opcionElegida = self.combo.get()
         if opcionElegida == '':
             messagebox.showerror(message= "¡Selecciona una opción!",title="Error")
