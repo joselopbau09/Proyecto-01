@@ -12,18 +12,19 @@ class Interfaz(ttk.Frame):
         self.estiloVentana(ventana)
         self.place(width=350, height=250)
         
-        self.etiquetaInformacion = ttk.Label(ventana, text="Bienvenido selecciona la clave de la ciudad\nde destino:")
+        self.etiquetaInformacion = ttk.Label(ventana, text="Bienvenido. Selecciona la clave de la ciudad\nde destino:")
         self.estiloMensaje()
 
         self.combo = ttk.Combobox(self,state= "readonly",values= clavesCiudad)
         self.combo.place(x=100, y=90)
         
-        self.button = ttk.Button(text="Mostrar selección",command=self.muestraOpcion)
-        self.button.place(x=120, y=140)
+        self.button = ttk.Button(text="Mostrar clima",command=self.muestraOpcion)
+        self.button.place(x=130, y=140)
     
     def estiloVentana(self,ventana):    
-        ventana.title("Gestor del clima")
+        ventana.title("Consultor del clima")
         ventana.iconbitmap('assets/icono.ico')
+        ventana.eval('tk::PlaceWindow . center')
         ventana.resizable(0,0)
         ventana.config(width=350, height=250)
     
@@ -35,7 +36,7 @@ class Interfaz(ttk.Frame):
     def muestraOpcion(self):
         opcionElegida = self.combo.get()
         if opcionElegida == '':
-            messagebox.showerror(message= "Selcciona una opción!",title="Error")
+            messagebox.showerror(message= "¡Selecciona una opción!",title="Error")
         else:
             solicitud = Request()
             cache = {}
