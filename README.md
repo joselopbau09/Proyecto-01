@@ -21,7 +21,7 @@ Para ejecutar el programa se necesita:
 ```
 > pip install requests
 ```
-- Recuerda que debes agrgagar el archivo siguiente en la carpeta assets `key.txt`, el cual debe de almacenar tu llave(activa) proporcionada por la Api OpenWeatherMap
+- Recuerda que debes agregagar el archivo siguiente en la carpeta assets `key.txt`, el cual debe de almacenar tu llave(activa) proporcionada por la Api OpenWeatherMap
 
 ## Cómo ejecutarlo:
 1. Dirigirse en la terminal a la carpeta donde está ubicado el archivo llamado `main.pyw` el cual esta en la carpeta src: 
