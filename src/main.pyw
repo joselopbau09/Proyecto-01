@@ -10,9 +10,9 @@ class main(ttk.Frame):
     """Clase para crear la interfaz gráfica.
 
     Attributes:
-        etiquetaInformacion (obj): Almacena el mensaje que informa al usuario.
-        boton (obj): Boton que llama a la función que devuelve los datos.
-        entradaClaves (obj): Lista desplegable de las claves de los aeropuertos.
+        etiquetaInformacion (Tk): Almacena el mensaje que informa al usuario.
+        boton (Tk): Boton que llama a la función que devuelve los datos.
+        entradaClaves (Tk): Lista desplegable de las claves de los aeropuertos.
 
     """
     
@@ -20,7 +20,7 @@ class main(ttk.Frame):
         """ Constructor que inicializa  los atributos de la clase.
 
         Args:
-            ventana (obj): Objeto de tipo tkinter.
+            ventana (Tk): Objeto de tipo tkinter.
             clavesCiudad (list): Contiene las claves de los aeropuertos.
 
         """
@@ -41,8 +41,9 @@ class main(ttk.Frame):
     def estiloVentana(self,ventana):
         """ Define el título, icono, tamaño y posición de la ventana.
             
-            Args:
-                ventana (Tk): ventana a la que se le aplican las características.
+        Args:
+            ventana (Tk): ventana a la que se le aplican las características.
+
         """
         ventana.title("Consultor del clima")
         ventana.iconbitmap('assets/icono.ico')
@@ -54,7 +55,7 @@ class main(ttk.Frame):
         """ Método que se encarga de posicionar y estilizar el texto de información.
     
         """
-        
+
         self.etiquetaInformacion.place(x=30, y=30) 
         self.etiquetaInformacion.configure(font=('Arial', 12))
         self.etiquetaInformacion.configure(anchor="center")
