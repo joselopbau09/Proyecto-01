@@ -1,3 +1,4 @@
+
 import csv
 
 """ Módulo LecturaCoordenadas """
@@ -56,7 +57,7 @@ class LecturaCoordenadas:
         return coordenadas  
 
     def lectura(self):
-        """ Realiza la lectura del archivo que contiene las coordenadas
+        """ Realiza la lectura del archivo que contiene las coordenadas de los aeropuertos.
 
         """
         with open(self.archivoCoordenadas, mode = 'r') as file:

@@ -1,6 +1,6 @@
+
 import requests, json
 import time
-
 from classes.LecturaCoordenadas import LecturaCoordenadas
 
 class Request:
@@ -45,7 +45,7 @@ class Request:
         self.climaCiudad = json.loads(respuesta.text)
     
     def generaDatos(self):
-        """Guarda los datos del clima en una lista
+        """Guarda los datos del clima en una lista.
 
         Return:
             list: lista que contiene los datos del clima y la hora en que se realizó la llamada.

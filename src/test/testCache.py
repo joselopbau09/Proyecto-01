@@ -4,7 +4,7 @@ from classes.Request import Request
 from classes.Cache import Cache
 
 def almacenaCache(indentificacion, cache):
-    """ Se encarga de hacer la llamada a la Api y de almacenar la infroemación en el cache.
+    """ Se encarga de hacer la llamada a la Api y de almacenar la información en el cache.
 
     Args:
         indetificacion (str): Clave de la ciudad.
