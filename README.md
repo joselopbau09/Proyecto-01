@@ -23,7 +23,7 @@ Para ejecutar el programa se necesita:
 ```
 
 ## Cómo ejecutarlo:
-1. Dirigirse en la terminal a la carpeta donde está ubicado el archivo llamado 'main.pyw' el cual esta en la carpeta src: 
+1. Dirigirse en la terminal a la carpeta donde está ubicado el archivo llamado `main.pyw` el cual esta en la carpeta src: 
 ```
 Proyecto-01\src>
 ```
@@ -32,7 +32,7 @@ Proyecto-01\src>
 ```
 > main.pyw
 ```
-Otra opción dar doble click sobre el archivo 'main.pyw'
+Otra opción dar doble click sobre el archivo `main.pyw`
 
 -Para ejecutar las pruebas unitarias desde la misma posición en el directorio ejecutar el siguiente comando:
 
