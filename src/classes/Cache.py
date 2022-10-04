@@ -1,3 +1,4 @@
+
 import time
 
 class Cache:
@@ -14,8 +15,8 @@ class Cache:
             listaDeDatos (list): lista que contiene la información del clima.
             identificador (str): key para el diccionario.
         """
-        cache[identificador] = listaDeDatos
 
+        cache[identificador] = listaDeDatos
 
     def infoActualizada(cache, identificador):
         """Método para verificar si la información del caché está actualizada, es decir, si tiene menos de 
@@ -28,6 +29,7 @@ class Cache:
         Return:
             boolean: True si la información está actualizada, False en otro caso.
         """
+
         horaActual = time.time()
         if(cache.get(identificador) == None):
             return False
@@ -37,14 +39,16 @@ class Cache:
             return True
 
     def muestraDatos(cache, identificador):
-        #Cambiar la documentación 
-        """Imprime los datos en la terminal.
+        """Se encarga de crear una cadena.
         
         Args:
             cache (dict): diccionario de donde se extraen los datos.
             identificador (str): key para obtener datos del diccionario.
 
+        Return:
+            str: Cadena con la información del aeropuerto proporcionada por la Api.
         """
+
         informacionClima = f'\
         El clima en {identificador} es: {cache[identificador][0]}\n\
             La temperatura actual es: {cache[identificador][1]}\n\

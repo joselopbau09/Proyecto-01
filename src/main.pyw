@@ -5,9 +5,26 @@ from classes.Request import *
 from tkinter import messagebox, ttk
 import tkinter as tk
 
-class Interfaz(ttk.Frame):
+class main(ttk.Frame):
+
+    """Clase para crear la interfaz gráfica.
+
+    Attributes:
+        etiquetaInformacion (Tk): Almacena el mensaje que informa al usuario.
+        boton (Tk): Boton que llama a la función que devuelve los datos.
+        entradaClaves (Tk): Lista desplegable de las claves de los aeropuertos.
+
+    """
     
     def __init__(self, ventana, clavesCiudad):
+        """ Constructor que inicializa  los atributos de la clase.
+
+        Args:
+            ventana (Tk): Objeto de tipo tkinter.
+            clavesCiudad (list): Contiene las claves de los aeropuertos.
+
+        """
+
         super().__init__(ventana)
         self.estiloVentana(ventana)
         self.place(width=350, height=250)
@@ -21,7 +38,13 @@ class Interfaz(ttk.Frame):
         self.button = ttk.Button(text="Mostrar clima",command=self.muestraOpcion)
         self.button.place(x=130, y=140)
     
-    def estiloVentana(self,ventana):    
+    def estiloVentana(self,ventana):
+        """ Define el título, icono, tamaño y posición de la ventana.
+            
+        Args:
+            ventana (Tk): ventana a la que se le aplican las características.
+
+        """
         ventana.title("Consultor del clima")
         ventana.iconbitmap('assets/icono.ico')
         ventana.eval('tk::PlaceWindow . center')
@@ -29,11 +52,19 @@ class Interfaz(ttk.Frame):
         ventana.config(width=350, height=250)
     
     def estiloMensaje(self):
+        """ Método que se encarga de posicionar y estilizar el texto de información.
+    
+        """
+
         self.etiquetaInformacion.place(x=30, y=30) 
         self.etiquetaInformacion.configure(font=('Arial', 12))
         self.etiquetaInformacion.configure(anchor="center")
-    
+
+        
     def muestraOpcion(self):
+        """ Realiza la llamada a la Api y muestra los datos del clima en una nueva ventana, revisando antes el cache.
+
+        """
         opcionElegida = self.combo.get()
         if opcionElegida == '':
             messagebox.showerror(message= "¡Selecciona una opción!",title="Error")
@@ -60,5 +91,5 @@ lectura = LecturaCoordenadas()
 dicAeropuertos = lectura.getCiudades()
 clavesAeropuertos = list(dicAeropuertos)
 clavesAeropuertos.pop(0)
-gestorClima = Interfaz(ventana, clavesAeropuertos)
+gestorClima = main(ventana, clavesAeropuertos)
 gestorClima.mainloop()
