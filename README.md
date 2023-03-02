@@ -1,6 +1,4 @@
-### Integrantes
-- García Velasco Erick Iram  - 318044309
-- López Bautista José Luis - 317191895
+
 
 # Consultor del clima
 Se encarga de consultar el clima haciendo uso del lenguaje Python, apoyándose de la Api [OpenWeatherMap](https://openweathermap.org/api).
